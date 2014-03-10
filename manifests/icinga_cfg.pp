@@ -10,7 +10,7 @@ define icinga::icinga_cfg (
   augeas { "icinga.cfg $key":
     context => "/files${$context}",
     incl    => $context,
-    lens    => 'Shellvars.lns',
+    lens    => 'Shellvars_novalidate.lns',
     onlyif  => "get $key != '$value'",
     changes => "set $key '$value'",
     notify  => Service['icinga'],
